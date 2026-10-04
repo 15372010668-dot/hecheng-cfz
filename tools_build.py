@@ -108,7 +108,7 @@ for i, tier in enumerate(TIERS, 1):
     rgb = np.array(im)
     bg = flood_bg(rgb)
     subj = fill_holes(largest_component(~bg))
-    m = Image.fromarray((subj*255).astype(np.uint8)).filter(ImageFilter.MinFilter(3)).filter(ImageFilter.GaussianBlur(1.2))
+    m = Image.fromarray((subj*255).astype(np.uint8)).filter(ImageFilter.GaussianBlur(1.5))
     alpha = np.array(m)
     out = np.dstack([rgb, alpha])
     ys, xs = np.where(alpha > 128)
@@ -122,7 +122,7 @@ for i, tier in enumerate(TIERS, 1):
     canvas.save(os.path.join(OUT, f"{i:02d}-{tier}.png"), optimize=True)
     canvas.save(os.path.join(OUT, f"{i:02d}-{tier}.webp"), quality=90, method=6)
     mats.append(canvas)
-    mask = np.array(canvas)[...,3] > 128
+    mask = np.array(canvas)[...,3] > 32
     s = cover(mask, None)
     shapes.append(s)
     print(i, tier, f"主体 {cw}x{ch} -> 画布内 {nw}x{nh}", "circles:", len(s["parts"]), "rb:", s["rb"])

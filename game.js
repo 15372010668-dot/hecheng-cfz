@@ -628,8 +628,9 @@
     if (revivePromptEl) revivePromptEl.hidden = true;
     if (overPanelEl) overPanelEl.hidden = false;
     if (overlayEl) overlayEl.classList.add('show');
-    if (window.DanaiwaBoard && window.DanaiwaBoard.onGameOver) {
-      window.DanaiwaBoard.onGameOver(state.score);
+    document.dispatchEvent(new CustomEvent('cfz:gameover', { detail: state.score | 0 }));
+    if (false) {
+      window.DanaiwaBoard && window.DanaiwaBoard.onGameOver(state.score);
     }
   }
 
