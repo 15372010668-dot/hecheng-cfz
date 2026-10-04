@@ -30,7 +30,7 @@
   const SQUASH_DECAY     = 9;    
   const SQUASH_MAX       = 0.30; 
 
-  const ASSET_FILL = 0.92; 
+  const ASSET_FILL = 0.78; 
 
   const FRUITS = [
     { name: '同学1',   r: 34,  c1: '#b9bf7a', c2: '#383a1f', line: 'rgba(43,43,38,.35)',
