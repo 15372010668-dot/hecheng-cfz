@@ -468,7 +468,7 @@
         haptic(70);
         state.flash = 1.4;                    
         state.freeze = FREEZE_MS / 1000;     
-        state.floats.push({ x: mx, y: my - 74, text: '两个大同学 💥', life: 1.6 });
+        state.floats.push({ x: mx, y: my - 74, text: '两个cfz 💥', life: 1.6 });
         state.floats.push({ x: mx, y: my - 16, text: '+' + MAX_BONUS, life: 2.2, big: true });
         if (MAX_MERGE_GIVES_REVIVE) {
           state.revives++;
